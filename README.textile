@@ -17,8 +17,19 @@ h3. Services
 
 h3. Shortening a URL
 
-<notextile>
-<script type="text/javascript">
-alert("hello!");
-</script>
-</notetile>
+<pre>
+<code>
+<?php
+
+$url = 'http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html';
+require_once 'Services/ShortURL.php';
+
+$api   = Services_ShortURL::factory('TinyURL');
+$short = $api->shorten($url);
+
+// I'm short!
+var_dump($short);
+
+?>
+</code>
+</pre>
