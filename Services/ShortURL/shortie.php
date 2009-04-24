@@ -7,38 +7,17 @@ require_once 'Services/ShortURL/Exception/CouldNotCreate.php';
 require_once 'Services/ShortURL/Exception/CouldNotExpand.php';
 require_once 'Services/ShortURL/Exception/InvalidOptions.php';
 
-class      Services_ShortURL_bitly
+class      Services_ShortURL_shortie
 extends    Services_ShortURL_Common
 implements Services_ShortURL_Interface
 {
-    private $api = 'http://api.bit.ly';
-
-    public function __construct(array $options = array(), 
-                                HTTP_Request2 $req = null) 
-    {
-        parent::__construct($options, $req);
-
-        if (!isset($this->options['login'])) {
-            throw new Services_ShortURL_Exception_InvalidOptions(
-                'A login is required for bit.ly'
-            );
-        }
-
-        if (!isset($this->options['apiKey'])) {
-            throw new Services_ShortURL_Exception_InvalidOptions(
-                'An apiKey is required for bit.ly'
-            );
-        }
-    }
+    private $api = 'http://short.ie/api';
 
     public function shorten($url)
     {
         $params = array(
-            'version' => '2.0.1',
-            'format'  => 'xml',
-            'longUrl' => $url,
-            'login'   => $this->options['login'],
-            'apiKey'  => $this->options['apiKey']        
+            'format' => 'xml',
+            'url'    => $url
         );
 
         $sets = array();
@@ -46,9 +25,9 @@ implements Services_ShortURL_Interface
             $sets[] = $key . '=' . $val;
         }
 
-        $url = $this->api . '/shorten?' . implode('&', $sets);
+        $url = $this->api . '?' . implode('&', $sets);
         $xml = $this->sendRequest($url);
-        return (string)$xml->results->nodeKeyVal->shortUrl;
+        return (string)$xml->shortened;
     }
 
     private function sendRequest($url)
@@ -67,12 +46,6 @@ implements Services_ShortURL_Interface
         if (!$xml instanceof SimpleXMLElement) {
             throw new Services_ShortURL_Exception_CouldNotCreate(
                 'Could not parse API response'
-            );
-        }
-
-        if ((int)$xml->errorCode > 0) {
-            throw new Services_ShortURL_Exception_CouldNotCreate(
-                (string)$xml->errorMessage, (int)$xml->errorCode
             );
         }
 

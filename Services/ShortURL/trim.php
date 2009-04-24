@@ -12,7 +12,7 @@ implements Services_ShortURL_Interface
 {
     protected $api = 'http://api.tr.im/api/trim_url.xml'; 
 
-    public function create($url)
+    public function shorten($url)
     {
         $url = $this->api . '?url=' . $url;        
         $this->req->setUrl($url);

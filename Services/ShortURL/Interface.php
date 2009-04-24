@@ -4,19 +4,19 @@ interface Services_ShortURL_Interface
 {
     /**
      */
-    public create($url);
+    public function shorten($url);
 
     /**
      */
-    public expand($url);
+    public function expand($url);
 
     /**
      */
-    public stats($url);
+    public function stats($url);
 
     /**
      */
-    public info($url);
+    public function info($url);
 }
 
 ?>

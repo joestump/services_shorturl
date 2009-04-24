@@ -12,7 +12,7 @@ implements Services_ShortURL_Interface
 {
     protected $api = 'http://tinyurl.com/api-create.php';
 
-    public function create($url)
+    public function shorten($url)
     {
         $url = $this->api . '?url=' . $url;
         $this->req->setUrl($url);

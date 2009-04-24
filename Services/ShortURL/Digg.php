@@ -25,7 +25,7 @@ implements Services_ShortURL_Interface
         }
     }
 
-    public function create($url)
+    public function shorten($url)
     {
         $url = $this->api . '/create?appkey=' . 
                urlencode($this->options['appkey']) . '&url=' . 

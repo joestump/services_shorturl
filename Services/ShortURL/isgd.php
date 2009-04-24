@@ -12,7 +12,7 @@ implements Services_ShortURL_Interface
 {
     protected $api = 'http://is.gd/api.php'; 
 
-    public function create($url)
+    public function shorten($url)
     {
         $url = $this->api . '?longurl=' . $url;        
         $this->req->setUrl($url);
