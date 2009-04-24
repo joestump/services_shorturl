@@ -4,7 +4,9 @@ h3. Introduction
 
 Services_ShortURL is an abstract interface to the plethora of short/tiny/miny
 URL services written in PHP5 for PEAR. It allows you to easily create or expand
-short URL's.
+short URL's. In addition to expanding and shortening short URL's it has helper
+functions for detecting what type of short URL service a URL belongs to and
+extracting short URL's and expanding them from blogs of text.
 
 h3. Services
 
@@ -28,6 +30,25 @@ $api   = Services_ShortURL::factory('TinyURL');
 $short = $api->shorten($url);
 
 // I'm short!
+var_dump($short);
+
+?>
+</code>
+</pre>
+
+h3. Expanding a URL
+
+<pre>
+<code>
+<?php
+
+$url = 'http://tinyurl.com/jumvn';
+require_once 'Services/ShortURL.php';
+
+$api  = Services_ShortURL::factory('TinyURL');
+$long = $api->expand($url);
+
+// Should be http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html
 var_dump($short);
 
 ?>

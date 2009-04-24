@@ -1,13 +1,56 @@
 <?php
 
+/**
+ * An abstract interface for dealing with short URL services
+ *
+ * PHP version 5.2.0+
+ *
+ * LICENSE: This source file is subject to the New BSD license that is          
+ * available through the world-wide-web at the following URI:
+ * http://www.opensource.org/licenses/bsd-license.php. If you did not receive  
+ * a copy of the New BSD License and are unable to obtain it through the web, 
+ * please send a note to license@php.net so we can mail you a copy immediately.
+ *
+ * @category    Services
+ * @package     Services_ShortURL
+ * @author      Joe Stump <joe@joestump.net> 
+ * @copyright   Joe Stump <joe@joestump.net> 
+ * @license     http://www.opensource.org/licenses/bsd-license.php 
+ * @version     CVS: $Id:$
+ * @link        http://pear.php.net/package/Services_ShortURL
+ * @link        http://github.com/joestump/services_shorturl
+ */     
+
 require_once 'PHPUnit/Framework/TestCase.php';
 require_once 'Services/ShortURL.php';
 require_once 'Validate.php';
 
+/**
+ * Basic test cases that shorten/expand 
+ *
+ * @category    Services
+ * @package     Services_ShortURL
+ * @author      Joe Stump <joe@joestump.net>
+ * @link        http://api.tr.im/website/api
+ */             
 class Services_ShortURLTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Test URL
+     *
+     * @var string $testURL A test URL for expand/shorten
+     */
     protected $testURL = 'http://www.joestump.net/2009/02/25-things.html';
 
+    /**
+     * Options for services
+     *
+     * WARNING: Please do not abuse any credentials you see in here as we might
+     * get banned from APIs for doing so.
+     *
+     * @var array $options Options array
+     * @see Services_ShortURLTest::setUp()
+     */
     protected $options = array(
         'TinyURL' => array(),
         'isgd'    => array(),
@@ -18,10 +61,15 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
             'apiKey' => 'R_242f2503a1c7ff9d07aaa1835722c42f'
         ),
         'Digg'    => array(
-            'appkey' => 'http://pear.php.net/package/Services_ShortURL'
+            'appkey' => 'http://pear.php.net/package/Services_ShortURL/@version@'
         )
     );
 
+    /**
+     * Set up the test
+     *
+     * @return void
+     */
     public function setUp()
     {
         foreach ($this->options as $service => $options) {
@@ -30,7 +78,10 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test creating and then expanding a URL
+     *
      * @dataProvider allServices
+     * @return void
      */
     public function testCreateThenExpand($service)
     {
@@ -47,7 +98,13 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test detecting services from URLs
+     *
+     * @param string $url     The URL to detect a service for
+     * @param string $service The service expected to be detected
+     *
      * @dataProvider detectServices
+     * @return void
      */
     public function testDetect($url, $service)
     {
@@ -60,7 +117,7 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @group Extract
+     *
      */
     public function testExtract()
     {
