@@ -11,14 +11,14 @@
  * a copy of the New BSD License and are unable to obtain it through the web, 
  * please send a note to license@php.net so we can mail you a copy immediately.
  *
- * @category    Services
- * @package     Services_ShortURL
- * @author      Joe Stump <joe@joestump.net> 
- * @copyright   Joe Stump <joe@joestump.net> 
- * @license     http://www.opensource.org/licenses/bsd-license.php 
- * @version     CVS: $Id:$
- * @link        http://pear.php.net/package/Services_ShortURL
- * @link        http://github.com/joestump/services_shorturl
+ * @category  Services
+ * @package   Services_ShortURL
+ * @author    Joe Stump <joe@joestump.net> 
+ * @copyright 2009 Joe Stump <joe@joestump.net> 
+ * @license   http://tinyurl.com/new-bsd New BSD License
+ * @version   CVS: $Id:$
+ * @link      http://pear.php.net/package/Services_ShortURL
+ * @link      http://github.com/joestump/services_shorturl
  */     
 
 require_once 'Net/URL2.php';
@@ -27,10 +27,12 @@ require_once 'Services/ShortURL/Exception.php';
 /**
  * An interface for managing short URLs
  *
- * @category    Services
- * @package     Services_ShortURL
- * @author      Joe Stump <joe@joestump.net>
- * @link        http://api.tr.im/website/api
+ * @category Services
+ * @package  Services_ShortURL
+ * @author   Joe Stump <joe@joestump.net>
+ * @license  http://tinyurl.com/new-bsd New BSD License
+ * @link     http://pear.php.net/package/Services_ShortURL
+ * @link     http://github.com/joestump/services_shorturl
  */             
 abstract class Services_ShortURL
 {
@@ -45,14 +47,14 @@ abstract class Services_ShortURL
      * @see Services_ShortURL::setServiceOptions()
      * @var array $options Service options
      */
-    static private $options = array();
+    static protected $options = array();
 
     /**
      * List of supported services
      *
      * @var array $services Map of services to drivers
      */
-    static private $services = array(
+    static protected $services = array(
         'bit.ly'      => 'bitly',
         'is.gd'       => 'isgd',
         'tinyurl.com' => 'TinyURL',
@@ -150,7 +152,7 @@ abstract class Services_ShortURL
 
         $ret = array();
         foreach ($m['url'] as $url) {
-            $api = self::detect($url);
+            $api       = self::detect($url);
             $ret[$url] = $api->expand($url);
         }
 
