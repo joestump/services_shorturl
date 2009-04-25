@@ -30,10 +30,12 @@ require_once 'Services/ShortURL/Exception/CouldNotExpand.php';
 /**
  * Interface for creating/expanding is.gd links
  *
- * @category    Services
- * @package     Services_ShortURL
- * @author      Joe Stump <joe@joestump.net> 
- * @link        http://is.gd/api_info.php
+ * @category Services
+ * @package  Services_ShortURL
+ * @author   Joe Stump <joe@joestump.net>
+ * @license  http://tinyurl.com/new-bsd New BSD License
+ * @link     http://pear.php.net/package/Services_ShortURL
+ * @link     http://is.gd/api_info.php
  */
 class      Services_ShortURL_isgd 
 extends    Services_ShortURL_Common

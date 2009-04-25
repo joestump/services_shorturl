@@ -24,9 +24,11 @@
 /**
  * Exception indicating the requested service is not supported
  *
- * @category    Services
- * @package     Services_ShortURL
- * @author      Joe Stump <joe@joestump.net> 
+ * @category Services
+ * @package  Services_ShortURL
+ * @author   Joe Stump <joe@joestump.net>
+ * @license  http://tinyurl.com/new-bsd New BSD License
+ * @link     http://pear.php.net/package/Services_ShortURL
  */
 class Services_ShortURL_Exception_UnknownService 
 extends Services_ShortURL_Exception

@@ -24,9 +24,11 @@
 /**
  * Exception indicating missing or invalid options for a service
  *
- * @category    Services
- * @package     Services_ShortURL
- * @author      Joe Stump <joe@joestump.net> 
+ * @category Services
+ * @package  Services_ShortURL
+ * @author   Joe Stump <joe@joestump.net>
+ * @license  http://tinyurl.com/new-bsd New BSD License
+ * @link     http://pear.php.net/package/Services_ShortURL
  */
 class   Services_ShortURL_Exception_InvalidOptions
 extends Services_ShortURL_Exception

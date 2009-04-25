@@ -31,10 +31,12 @@ require_once 'Services/ShortURL/Exception/InvalidOptions.php';
 /**
  * Interface for creating/expanding Digg links
  *
- * @category    Services
- * @package     Services_ShortURL
- * @author      Joe Stump <joe@joestump.net> 
- * @link        http://apidoc.digg.com/ShortURLs
+ * @category Services
+ * @package  Services_ShortURL
+ * @author   Joe Stump <joe@joestump.net>
+ * @license  http://tinyurl.com/new-bsd New BSD License
+ * @link     http://pear.php.net/package/Services_ShortURL
+ * @link     http://apidoc.digg.com/ShortURLs
  */
 class      Services_ShortURL_Digg
 extends    Services_ShortURL_Common

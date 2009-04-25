@@ -31,10 +31,12 @@ require_once 'Services/ShortURL/Exception/InvalidOptions.php';
 /**
  * Interface for creating/expanding bit.ly links
  *
- * @category    Services
- * @package     Services_ShortURL
- * @author      Joe Stump <joe@joestump.net> 
- * @link        http://bit.ly
+ * @category Services
+ * @package  Services_ShortURL
+ * @author   Joe Stump <joe@joestump.net>
+ * @license  http://tinyurl.com/new-bsd New BSD License
+ * @link     http://pear.php.net/package/Services_ShortURL
+ * @link     http://bit.ly
  */
 class      Services_ShortURL_bitly
 extends    Services_ShortURL_Common

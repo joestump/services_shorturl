@@ -30,11 +30,13 @@ require_once 'Services/ShortURL/Exception/CouldNotExpand.php';
 /**
  * Interface for creating/expanding tr.im links
  *
- * @category    Services                                                        
- * @package     Services_ShortURL                                               
- * @author      Joe Stump <joe@joestump.net>                                    
- * @link        http://api.tr.im/website/api
- */                      
+ * @category Services
+ * @package  Services_ShortURL
+ * @author   Joe Stump <joe@joestump.net>
+ * @license  http://tinyurl.com/new-bsd New BSD License
+ * @link     http://pear.php.net/package/Services_ShortURL
+ * @link     http://api.tr.im/website/api
+ */
 class      Services_ShortURL_trim
 extends    Services_ShortURL_Common
 implements Services_ShortURL_Interface

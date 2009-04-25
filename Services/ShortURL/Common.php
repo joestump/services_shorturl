@@ -27,9 +27,11 @@ require_once 'Services/ShortURL/Exception.php';
 /**
  * A common class for all short URL drivers
  *
- * @category    Services
- * @package     Services_ShortURL
- * @author      Joe Stump <joe@joestump.net> 
+ * @category Services
+ * @package  Services_ShortURL
+ * @author   Joe Stump <joe@joestump.net>
+ * @license  http://tinyurl.com/new-bsd New BSD License
+ * @link     http://pear.php.net/package/Services_ShortURL
  */
 abstract class Services_ShortURL_Common
 {

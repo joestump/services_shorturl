@@ -31,10 +31,12 @@ require_once 'Services/ShortURL/Exception/InvalidOptions.php';
 /**
  * Interface for creating/expanding short.ie links
  *
- * @category    Services
- * @package     Services_ShortURL
- * @author      Joe Stump <joe@joestump.net> 
- * @link        http://wiki.short.ie/index.php/Main_Page
+ * @category Services
+ * @package  Services_ShortURL
+ * @author   Joe Stump <joe@joestump.net>
+ * @license  http://tinyurl.com/new-bsd New BSD License
+ * @link     http://pear.php.net/package/Services_ShortURL
+ * @link     http://wiki.short.ie/index.php/Main_Page
  */
 class      Services_ShortURL_shortie
 extends    Services_ShortURL_Common

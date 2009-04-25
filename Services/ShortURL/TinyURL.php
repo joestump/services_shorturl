@@ -30,10 +30,12 @@ require_once 'Services/ShortURL/Exception/CouldNotExpand.php';
 /**
  * Interface for creating/expanding tinyurl.com links
  *
- * @category    Services
- * @package     Services_ShortURL
- * @author      Joe Stump <joe@joestump.net> 
- * @link        http://tinyurl.com/
+ * @category Services
+ * @package  Services_ShortURL
+ * @author   Joe Stump <joe@joestump.net>
+ * @license  http://tinyurl.com/new-bsd New BSD License
+ * @link     http://pear.php.net/package/Services_ShortURL
+ * @link     http://tinyurl.com/
  */
 class      Services_ShortURL_TinyURL 
 extends    Services_ShortURL_Common
