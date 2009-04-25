@@ -11,15 +11,15 @@
  * a copy of the New BSD License and are unable to obtain it through the web, 
  * please send a note to license@php.net so we can mail you a copy immediately.
  *
- * @category    Services
- * @package     Services_ShortURL
- * @author      Joe Stump <joe@joestump.net> 
- * @copyright   Joe Stump <joe@joestump.net> 
- * @license     http://www.opensource.org/licenses/bsd-license.php 
- * @version     CVS: $Id:$
- * @link        http://pear.php.net/package/Services_ShortURL
- * @link        http://github.com/joestump/services_shorturl
- */ 
+ * @category  Services
+ * @package   Services_ShortURL
+ * @author    Joe Stump <joe@joestump.net> 
+ * @copyright 2009 Joe Stump <joe@joestump.net> 
+ * @license   http://tinyurl.com/new-bsd New BSD License
+ * @version   CVS: $Id:$
+ * @link      http://pear.php.net/package/Services_ShortURL
+ * @link      http://github.com/joestump/services_shorturl
+ */
 
 require_once 'Services/ShortURL/Common.php';
 require_once 'Services/ShortURL/Interface.php';
