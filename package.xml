@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.4.2" 
+         version="2.0" 
+         xmlns="http://pear.php.net/dtd/package-2.0" 
+         xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+                             http://pear.php.net/dtd/tasks-1.0.xsd
+                             http://pear.php.net/dtd/package-2.0
+                             http://pear.php.net/dtd/package-2.0.xsd">
+    <name>Services_ShortURL</name>
+    <channel>pear.php.net</channel>
+    <summary>Abstract PHP5 interface for shortening and expanding short URLs</summary>
+    <description>Short URL services have become enormously popular on the internet. There are, literally, dozens (hundreds?) of these services. Services_ShortURL offers an abstract way of shortening and expanding URLs.</description>
+    <lead>
+        <name>Joe Stump</name>
+        <user>jstump</user>
+        <email>joe@joestump.net</email>
+        <active>yes</active>
+    </lead>
+    <date>2009-04-24</date>
+    <version>
+        <release>0.0.1</release>
+        <api>0.0.1</api>
+    </version>
+    <stability>
+        <release>alpha</release>
+        <api>alpha</api>
+    </stability>
+    <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+    <notes><![CDATA[
+        * Initial release
+    ]]></notes>
+    <contents>
+        <dir name="/">
+            <dir name="Services">
+                <file name="ShortURL.php"
+                      role="php" />
+                <dir name="ShortURL">
+                    <file name="bitly.php"
+                          role="php" />
+                    <file name="Common.php"
+                          role="php" />
+                    <file name="Digg.php"
+                          role="php" />
+                    <file name="Interface.php"
+                          role="php" />
+                    <file name="isgd.php"
+                          role="php" />
+                    <file name="shortie.php"
+                          role="php" />
+                    <file name="TinyURL.php"
+                          role="php" />
+                    <file name="trim.php"
+                          role="php" />
+                    <file name="Exception.php"
+                          role="php" />
+                    <dir name="Exception">
+                        <file name="CouldNotCreate.php"
+                              role="php" />
+                        <file name="CouldNotExpand.php"
+                              role="php" />
+                        <file name="InvalidOptions.php"
+                              role="php" />
+                        <file name="NotImplemented.php"
+                              role="php" />
+                        <file name="UnknownService.php"
+                              role="php" />
+                    </dir>
+                </dir>
+            </dir>
+            <dir name="tests">
+                <file name="AllTests.php"
+                      role="test" />
+                <dir name="Services">
+                    <dir name="ShortURL">
+                        <file name="ShortURLTest.php"
+                              role="test" />
+                    </dir>
+                </dir>
+            </dir>
+        </dir>
+    </contents>
+    <dependencies>
+        <required>
+            <php>
+                <min>5.1.0</min>
+            </php>
+            <pearinstaller>
+                <min>1.4.0b1</min>
+            </pearinstaller>
+            <package>
+                <name>Net_URL2</name>
+                <min>0.2.0</min>
+            </package>
+        </required>
+    </dependencies>
+    <phprelease />
+    <changelog>
+    </changelog>
+</package>
