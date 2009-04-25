@@ -73,10 +73,8 @@
                 <file name="AllTests.php"
                       role="test" />
                 <dir name="Services">
-                    <dir name="ShortURL">
-                        <file name="ShortURLTest.php"
-                              role="test" />
-                    </dir>
+                    <file name="ShortURLTest.php"
+                          role="test" />
                 </dir>
             </dir>
         </dir>
@@ -90,8 +88,19 @@
                 <min>1.4.0b1</min>
             </pearinstaller>
             <package>
+                <name>HTTP_Request2</name>
+                <channel>pear.php.net</channel>
+                <min>0.3.0</min>
+            </package>
+            <package>
                 <name>Net_URL2</name>
+                <channel>pear.php.net</channel>
                 <min>0.2.0</min>
+            </package>
+            <package>
+                <name>Validate</name>
+                <channel>pear.php.net</channel>
+                <min>0.8.2</min>
             </package>
         </required>
     </dependencies>
