@@ -24,7 +24,7 @@
 require_once 'Services/ShortURL/Common.php';
 require_once 'Services/ShortURL/Interface.php';
 require_once 'Services/ShortURL/Exception/NotImplemented.php';
-require_once 'Services/ShortURL/Exception/CouldNotCreate.php';
+require_once 'Services/ShortURL/Exception/CouldNotShorten.php';
 require_once 'Services/ShortURL/Exception/CouldNotExpand.php';
 
 /**
@@ -51,7 +51,7 @@ implements Services_ShortURL_Interface
         $result = $this->req->send();
 
         if ($result->getStatus() != 200) {
-            throw new Services_ShortURL_Exception_CouldNotCreate();            
+            throw new Services_ShortURL_Exception_CouldNotShorten();            
         }
 
         return trim($result->getBody());

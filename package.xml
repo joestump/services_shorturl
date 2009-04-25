@@ -56,7 +56,7 @@
                     <file name="Exception.php"
                           role="php" />
                     <dir name="Exception">
-                        <file name="CouldNotCreate.php"
+                        <file name="CouldNotShorten.php"
                               role="php" />
                         <file name="CouldNotExpand.php"
                               role="php" />

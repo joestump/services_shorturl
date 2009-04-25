@@ -30,7 +30,7 @@
  * @license  http://tinyurl.com/new-bsd New BSD License
  * @link     http://pear.php.net/package/Services_ShortURL
  */
-class   Services_ShortURL_Exception_CouldNotCreate
+class   Services_ShortURL_Exception_CouldNotShorten
 extends Services_ShortURL_Exception
 {
 

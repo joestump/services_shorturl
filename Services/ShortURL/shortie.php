@@ -24,7 +24,7 @@
 require_once 'Services/ShortURL/Common.php';
 require_once 'Services/ShortURL/Interface.php';
 require_once 'Services/ShortURL/Exception/NotImplemented.php';
-require_once 'Services/ShortURL/Exception/CouldNotCreate.php';
+require_once 'Services/ShortURL/Exception/CouldNotShorten.php';
 require_once 'Services/ShortURL/Exception/CouldNotExpand.php';
 require_once 'Services/ShortURL/Exception/InvalidOptions.php';
 
@@ -75,7 +75,7 @@ implements Services_ShortURL_Interface
 
         $xml = @simplexml_load_string($result->getBody());
         if (!$xml instanceof SimpleXMLElement) {
-            throw new Services_ShortURL_Exception_CouldNotCreate(
+            throw new Services_ShortURL_Exception_CouldNotShorten(
                 'Could not parse API response'
             );
         }

@@ -37,7 +37,7 @@ interface Services_ShortURL_Interface
      *
      * @param string $url The URL to shorten
      * 
-     * @throws {@link Services_ShortURL_Exception_CouldNotCreate}
+     * @throws {@link Services_ShortURL_Exception_CouldNotShorten}
      * @return string
      */
     public function shorten($url);
@@ -57,7 +57,7 @@ interface Services_ShortURL_Interface
      *
      * @param string $url The URL to get stats for
      * 
-     * @throws {@link Services_ShortURL_Exception_CouldNotCreate}
+     * @throws {@link Services_ShortURL_Exception_CouldNotShorten}
      * @throws {@link Services_ShortURL_Exception_NotImplemented}
      * @return mixed
      */
@@ -68,7 +68,7 @@ interface Services_ShortURL_Interface
      *
      * @param string $url The URL to get information for
      * 
-     * @throws {@link Services_ShortURL_Exception_CouldNotCreate}
+     * @throws {@link Services_ShortURL_Exception_CouldNotShorten}
      * @throws {@link Services_ShortURL_Exception_NotImplemented}
      * @return mixed
      */
