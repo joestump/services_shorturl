@@ -49,20 +49,13 @@ implements Services_ShortURL_Interface
         $params = array(
             'format'    => 'xml',
             'url'       => $url,
-            'private'   => isset($this->options['private']) 
-                           ? $this->options['private'] 
-                           : 'false',
+            'private'   => isset($this->options['private']) ? 'true' : 'false',
         );
 
         // If the email and secret key is passed, use it.
         if (isset($this->options['email']) && isset($this->options['secretKey'])) {
             $params['email']     = $this->options['email'];
             $params['secretKey'] = $this->options['secretKey'];
-        }
-
-        // If it's a custom url, use it.
-        if (isset($this->options['custom'])) {
-            $params['custom'] = $this->options['custom'];
         }
 
         $sets = array();
