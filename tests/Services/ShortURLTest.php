@@ -53,10 +53,10 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
      */
     protected $options = array(
         'TinyURL' => array(),
-        'isgd'    => array(),
-        'trim'    => array(),
-        'shortie' => array(),
-        'bitly'   => array(
+        'Isgd'    => array(),
+        'Trim'    => array(),
+        'Shortie' => array(),
+        'Bitly'   => array(
             'login'  => 'servicesshorturl',
             'apiKey' => 'R_242f2503a1c7ff9d07aaa1835722c42f'
         ),
@@ -143,10 +143,10 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
     {
         return array(
             array('TinyURL'),
-            array('isgd'),
-            array('trim'),
-            array('shortie'),
-            array('bitly'),
+            array('Isgd'),
+            array('Trim'),
+            array('Shortie'),
+            array('Bitly'),
             array('Digg')
         );
     }
@@ -155,10 +155,10 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
     {
         return array(
             array('http://tinyurl.com/ddef9j', 'TinyURL'),
-            array('http://short.ie/40yi4x', 'shortie'),            
-            array('http://is.gd/uaPi', 'isgd'),
-            array('http://tr.im/jCBG', 'trim'),
-            array('http://bit.ly/10qgu', 'bitly'),
+            array('http://short.ie/40yi4x', 'Shortie'),
+            array('http://is.gd/uaPi', 'Isgd'),
+            array('http://tr.im/jCBG', 'Trim'),
+            array('http://bit.ly/10qgu', 'Bitly'),
             array('http://digg.com/d1kAa1', 'Digg')
         );
     }

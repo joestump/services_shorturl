@@ -37,7 +37,7 @@
                 <file name="ShortURL.php"
                       role="php" />
                 <dir name="ShortURL">
-                    <file name="bitly.php"
+                    <file name="Bitly.php"
                           role="php" />
                     <file name="Common.php"
                           role="php" />
@@ -45,13 +45,13 @@
                           role="php" />
                     <file name="Interface.php"
                           role="php" />
-                    <file name="isgd.php"
+                    <file name="Isgd.php"
                           role="php" />
-                    <file name="shortie.php"
+                    <file name="Shortie.php"
                           role="php" />
                     <file name="TinyURL.php"
                           role="php" />
-                    <file name="trim.php"
+                    <file name="Trim.php"
                           role="php" />
                     <file name="Exception.php"
                           role="php" />
