@@ -47,8 +47,15 @@ implements Services_ShortURL_Interface
     public function shorten($url)
     {
         $params = array(
-            'format' => 'xml',
-            'url'    => $url
+            'format'    => 'xml',
+            'url'       => $url,
+            'private'   => isset($this->options['private']) 
+                           ? $this->options['private'] 
+                           : 'false',
+
+            'email'     => $this->options['email'],
+            'secretKey' => $this->options['secretKey'],
+            'custom'    => $this->options['custom'],
         );
 
         $sets = array();
