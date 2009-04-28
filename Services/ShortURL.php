@@ -55,12 +55,12 @@ abstract class Services_ShortURL
      * @var array $services Map of services to drivers
      */
     static protected $services = array(
-        'bit.ly'      => 'bitly',
-        'is.gd'       => 'isgd',
+        'bit.ly'      => 'Bitly',
+        'is.gd'       => 'Isgd',
         'tinyurl.com' => 'TinyURL',
         'digg.com'    => 'Digg',
-        'tr.im'       => 'trim',
-        'short.ie'    => 'shortie'
+        'tr.im'       => 'Trim',
+        'short.ie'    => 'Shortie'
     );
 
     /**

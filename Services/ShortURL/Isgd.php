@@ -37,7 +37,7 @@ require_once 'Services/ShortURL/Exception/CouldNotExpand.php';
  * @link     http://pear.php.net/package/Services_ShortURL
  * @link     http://is.gd/api_info.php
  */
-class      Services_ShortURL_isgd 
+class      Services_ShortURL_Isgd 
 extends    Services_ShortURL_Common
 implements Services_ShortURL_Interface
 {

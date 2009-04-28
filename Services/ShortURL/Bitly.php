@@ -29,43 +29,62 @@ require_once 'Services/ShortURL/Exception/CouldNotExpand.php';
 require_once 'Services/ShortURL/Exception/InvalidOptions.php';
 
 /**
- * Interface for creating/expanding short.ie links
+ * Interface for creating/expanding bit.ly links
  *
  * @category Services
  * @package  Services_ShortURL
  * @author   Joe Stump <joe@joestump.net>
  * @license  http://tinyurl.com/new-bsd New BSD License
  * @link     http://pear.php.net/package/Services_ShortURL
- * @link     http://wiki.short.ie/index.php/Main_Page
+ * @link     http://bit.ly
  */
-class      Services_ShortURL_shortie
+class      Services_ShortURL_Bitly
 extends    Services_ShortURL_Common
 implements Services_ShortURL_Interface
 {
-    private $api = 'http://short.ie/api';
+    /**
+     * API URL
+     *
+     * @var string $api The URL for the API
+     */
+    private $api = 'http://api.bit.ly';
+
+    public function __construct(array $options = array(), 
+                                HTTP_Request2 $req = null) 
+    {
+        parent::__construct($options, $req);
+
+        if (!isset($this->options['login'])) {
+            throw new Services_ShortURL_Exception_InvalidOptions(
+                'A login is required for bit.ly'
+            );
+        }
+
+        if (!isset($this->options['apiKey'])) {
+            throw new Services_ShortURL_Exception_InvalidOptions(
+                'An apiKey is required for bit.ly'
+            );
+        }
+    }
 
     public function shorten($url)
     {
         $params = array(
-            'format'    => 'xml',
-            'url'       => $url,
-            'private'   => isset($this->options['private']) ? 'true' : 'false',
+            'version' => '2.0.1',
+            'format'  => 'xml',
+            'longUrl' => $url,
+            'login'   => $this->options['login'],
+            'apiKey'  => $this->options['apiKey']        
         );
-
-        // If the email and secret key is passed, use it.
-        if (isset($this->options['email']) && isset($this->options['secretKey'])) {
-            $params['email']     = $this->options['email'];
-            $params['secretKey'] = $this->options['secretKey'];
-        }
 
         $sets = array();
         foreach ($params as $key => $val) {
             $sets[] = $key . '=' . $val;
         }
 
-        $url = $this->api . '?' . implode('&', $sets);
+        $url = $this->api . '/shorten?' . implode('&', $sets);
         $xml = $this->sendRequest($url);
-        return (string)$xml->shortened;
+        return (string)$xml->results->nodeKeyVal->shortUrl;
     }
 
     private function sendRequest($url)
@@ -84,6 +103,12 @@ implements Services_ShortURL_Interface
         if (!$xml instanceof SimpleXMLElement) {
             throw new Services_ShortURL_Exception_CouldNotShorten(
                 'Could not parse API response'
+            );
+        }
+
+        if ((int)$xml->errorCode > 0) {
+            throw new Services_ShortURL_Exception_CouldNotShorten(
+                (string)$xml->errorMessage, (int)$xml->errorCode
             );
         }
 

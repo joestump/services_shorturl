@@ -37,7 +37,7 @@ require_once 'Services/ShortURL/Exception/CouldNotExpand.php';
  * @link     http://pear.php.net/package/Services_ShortURL
  * @link     http://api.tr.im/website/api
  */
-class      Services_ShortURL_trim
+class      Services_ShortURL_Trim
 extends    Services_ShortURL_Common
 implements Services_ShortURL_Interface
 {
