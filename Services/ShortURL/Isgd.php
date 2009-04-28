@@ -41,8 +41,21 @@ class      Services_ShortURL_Isgd
 extends    Services_ShortURL_Common
 implements Services_ShortURL_Interface
 {
+    /**
+     * Location of API
+     *
+     * @var string $api Location of API
+     */
     protected $api = 'http://is.gd/api.php'; 
 
+    /**
+     * Shorten a URL using {@link http://is.gd}
+     *
+     * @param string $url The URL to shorten
+     *
+     * @throws {@link Services_ShortURL_Exception_CouldNotShorten}
+     * @return string The shortened URL
+     */
     public function shorten($url)
     {
         $url = $this->api . '?longurl=' . $url;        

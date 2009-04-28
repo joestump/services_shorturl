@@ -30,7 +30,7 @@
  * @license  http://tinyurl.com/new-bsd New BSD License
  * @link     http://pear.php.net/package/Services_ShortURL
  */
-interface Services_ShortURL_Interface 
+interface Services_ShortURL_Interface
 {
     /**
      * Shorten a given URL
