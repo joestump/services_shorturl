@@ -35,9 +35,35 @@ require_once 'Services/ShortURL/Exception.php';
  */
 abstract class Services_ShortURL_Common
 {
+    /**
+     * Service options
+     *
+     * Some services require an API key, username/password, or other 
+     * non-standard information. Those options are set on a per-service 
+     * basis and passed to the constructor.
+     *
+     * @var array $options Service options
+     * @see Services_ShortURL::$options
+     * @see Services_ShortURL::setServiceOptions()
+     */
     protected $options = array();
+
+    /**
+     * Instance of {@link HTTP_Request2}
+     *
+     * @var object $req Instance of {@link HTTP_Request2}
+     * @see Services_ShortURL_Common::__construct()
+     */
     protected $req = null;
 
+    /**
+     * Constructor
+     *
+     * @param array  $options Service options
+     * @param object $req     Provide your own {@link HTTP_Request2} instance
+     *
+     * @return void
+     */
     public function __construct(array $options = array(), 
                                 HTTP_Request2 $req = null) 
     {
@@ -46,14 +72,24 @@ abstract class Services_ShortURL_Common
         } else {
             $this->req = new HTTP_Request2();
             $this->req->setAdapter('Curl');
-            $this->req->setHeader(
-                'User-Agent', get_class($this) . ' @version@'
-            );
+            $this->req->setHeader('User-Agent', get_class($this) . ' @version@');
         }
 
         $this->options = $options;
     }
 
+    /**
+     * Acceptor pattern
+     *
+     * By default, {@link Services_ShortURL} will create a cURL version of
+     * {@link HTTP_Request2}. If you need to override this you can use the
+     * accept method or pass an instance into the constructor.
+     *
+     * @param object $object Instance of {@link HTTP_Request2}
+     *
+     * @throws InvalidArgumentException on invalid object
+     * @return void
+     */
     public function accept($object)
     {
         if (!is_object($object)) {
@@ -69,6 +105,19 @@ abstract class Services_ShortURL_Common
         }
     }
 
+    /**
+     * Default expand method
+     *
+     * All of the URL shortening services, for the most part, do a 301 redirect
+     * using the Location header. Rather than implement this over and over we
+     * provide it here and assume others who need non-normal expansion will
+     * override this method.
+     *
+     * @param string $url The URL to expand
+     *
+     * @throws {@link Services_ShortURL_Exception_CouldNotExpand} on non-300's.
+     * @return string $url The expanded URL
+     */
     public function expand($url)
     {
         $this->req->setUrl($url);

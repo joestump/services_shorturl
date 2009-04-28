@@ -47,8 +47,17 @@ implements Services_ShortURL_Interface
      *
      * @var string $api The URL for the API
      */
-    private $api = 'http://api.bit.ly';
+    protected $api = 'http://api.bit.ly';
 
+    /**
+     * Constructor
+     *
+     * @param array  $options The service options array
+     * @param object $req     The request object 
+     *
+     * @throws {@link Services_ShortURL_Exception_InvalidOptions}
+     * @return void
+     */
     public function __construct(array $options = array(), 
                                 HTTP_Request2 $req = null) 
     {
@@ -67,6 +76,15 @@ implements Services_ShortURL_Interface
         }
     }
 
+    /**
+     * Shorten a URL using {@link http://bit.ly}
+     *
+     * @param string $url The URL to shorten
+     *
+     * @throws {@link Services_ShortURL_Exception_CouldNotShorten}
+     * @return string The shortened URL
+     * @see Services_ShortURL_Bitly::sendRequest()
+     */
     public function shorten($url)
     {
         $params = array(
@@ -87,14 +105,22 @@ implements Services_ShortURL_Interface
         return (string)$xml->results->nodeKeyVal->shortUrl;
     }
 
-    private function sendRequest($url)
+    /**
+     * Send a request to {@link http://bit.ly}
+     *
+     * @param string $url The URL to send the request to
+     *
+     * @throws {@link Services_ShortURL_Exception_CouldNotShorten}
+     * @return object Instance of SimpleXMLElement
+     */
+    protected function sendRequest($url)
     {
         $this->req->setUrl($url);
         $this->req->setMethod('GET');
 
         $result = $this->req->send(); 
         if ($result->getStatus() != 200) {
-            throw new Services_ShortURL_Exception_CouldNotExpand(
+            throw new Services_ShortURL_Exception_CouldNotShorten(
                 'Non-300 code returned', $result->getStatus()
             );
         }
