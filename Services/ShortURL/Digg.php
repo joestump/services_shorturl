@@ -42,8 +42,23 @@ class      Services_ShortURL_Digg
 extends    Services_ShortURL_Common
 implements Services_ShortURL_Interface
 {
+    /**
+     * Location of API
+     *
+     * @var string $api Location of API
+     */
     protected $api = 'http://services.digg.com/url/short';
+    
 
+    /**
+     * Constructor
+     *
+     * @param array  $options The service options array
+     * @param object $req     The request object 
+     *
+     * @throws {@link Services_ShortURL_Exception_InvalidOptions}
+     * @return void
+     */
     public function __construct(array $options = array(), 
                                 HTTP_Request2 $req = null) 
     {
@@ -56,6 +71,15 @@ implements Services_ShortURL_Interface
         }
     }
 
+    /**
+     * Shorten a URL using {@link http://digg.com}
+     *
+     * @param string $url The URL to shorten
+     *
+     * @throws {@link Services_ShortURL_Exception_CouldNotShorten}
+     * @return string The shortened URL
+     * @see Services_ShortURL_Digg::sendRequest()
+     */
     public function shorten($url)
     {
         $url = $this->api . '/create?appkey=' . 
@@ -67,9 +91,18 @@ implements Services_ShortURL_Interface
         return (string)$xml->shorturl['short_url'];
     }
 
+    /**
+     * Expand a {@link http://digg.com} short URL
+     *
+     * @param string $url The short URL to expand
+     *
+     * @throws {@link Services_ShortURL_Exception_CouldNotExpand}
+     * @return string The expanded URL
+     * @see Services_ShortURL_Digg::sendRequest()
+     */
     public function expand($url)
     {
-        $m = array();
+        $m      = array();
         $regExp = '#http://digg.com/(?P<id>[du][0-9][a-zA-Z0-9]{1,6})?#';
         if (!preg_match($regExp, $url, $m)) {
             throw new Services_ShortURL_Exception_CouldNotExpand(
@@ -85,7 +118,15 @@ implements Services_ShortURL_Interface
         return (string)$xml->shorturl['link'];
     }
 
-    private function sendRequest($url)
+    /**
+     * Send a request to {@link http://services.digg.com}
+     *
+     * @param string $url The URL to send the request to
+     *
+     * @throws {@link Services_ShortURL_Exception_CouldNotShorten}
+     * @return object Instance of SimpleXMLElement
+     */
+    protected function sendRequest($url)
     {
         $this->req->setUrl($url);
         $this->req->setMethod('GET');
