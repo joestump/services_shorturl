@@ -52,11 +52,18 @@ implements Services_ShortURL_Interface
             'private'   => isset($this->options['private']) 
                            ? $this->options['private'] 
                            : 'false',
-
-            'email'     => $this->options['email'],
-            'secretKey' => $this->options['secretKey'],
-            'custom'    => $this->options['custom'],
         );
+
+        // If the email and secret key is passed, use it.
+        if (isset($this->options['email']) && isset($this->options['secretKey'])) {
+            $params['email']     = $this->options['email'];
+            $params['secretKey'] = $this->options['secretKey'];
+        }
+
+        // If it's a custom url, use it.
+        if (isset($this->options['custom'])) {
+            $params['custom'] = $this->options['custom'];
+        }
 
         $sets = array();
         foreach ($params as $key => $val) {
