@@ -57,20 +57,19 @@ var_dump($short);
 
 h3. Extracting known URLs
 
-If you have a blob of text that may or may not contain short URLs in it, you can easily extract them with the <code>Services_ShortURL::extract() method. This method looks through the text for known short URLs, extracts them, expands them and then returns an array with a key/value pair of short/long URLs.
+If you have a blob of text that may or may not contain short URLs in it, you can easily extract them with the <code>Services_ShortURL::extract()</code> method. This method looks through the text for known short URLs, extracts them, expands them and then returns an array with a key/value pair of short/long URLs.
 
 <pre>
 <code>
 <?php
 
-$url = 'http://tinyurl.com/jumvn';
+$txt = 'Hey check out http://tinyurl.com/jumvn and http://bit.ly/EojDf if you like politics.';
 require_once 'Services/ShortURL.php';
 
-$api  = Services_ShortURL::factory('TinyURL');
-$long = $api->expand($url);
+$urls = Services_ShortURL::extract($txt);
 
-// Should be http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html
-var_dump($short);
+// Will be a hash with short => long URls in it.
+print_r($urls);
 
 ?>
 </code>
