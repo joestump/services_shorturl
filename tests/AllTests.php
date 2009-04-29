@@ -5,7 +5,7 @@
  *
  * PHP version 5.2.0+
  *
- * LICENSE: This source file is subject to the New BSD license that is          
+ * LICENSE: This source file is subject to the New BSD license that is
  * available through the world-wide-web at the following URI:
  * http://www.opensource.org/licenses/bsd-license.php. If you did not receive  
  * a copy of the New BSD License and are unable to obtain it through the web, 
@@ -29,10 +29,11 @@ require_once 'PHPUnit/Framework/TestSuite.php';
 /**
  * The all tests suite file
  *
- * @category    Services                                                        
- * @package     Services_ShortURL                                               
- * @author      Joe Stump <joe@joestump.net>                                    
- * @link        http://api.tr.im/website/api
+ * @category Services                                                        
+ * @package  Services_ShortURL                                               
+ * @author   Joe Stump <joe@joestump.net>                                    
+ * @license  http://tinyurl.com/new-bsd New BSD License
+ * @link     http://api.tr.im/website/api
  */             
 class Services_ShortURL_AllTests
 {

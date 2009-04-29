@@ -5,7 +5,7 @@
  *
  * PHP version 5.2.0+
  *
- * LICENSE: This source file is subject to the New BSD license that is          
+ * LICENSE: This source file is subject to the New BSD license that is
  * available through the world-wide-web at the following URI:
  * http://www.opensource.org/licenses/bsd-license.php. If you did not receive  
  * a copy of the New BSD License and are unable to obtain it through the web, 
@@ -28,10 +28,11 @@ require_once 'Validate.php';
 /**
  * Basic test cases that shorten/expand 
  *
- * @category    Services
- * @package     Services_ShortURL
- * @author      Joe Stump <joe@joestump.net>
- * @link        http://api.tr.im/website/api
+ * @category Services
+ * @package  Services_ShortURL
+ * @author   Joe Stump <joe@joestump.net>
+ * @license  http://tinyurl.com/new-bsd New BSD License
+ * @link     http://api.tr.im/website/api
  */             
 class Services_ShortURLTest extends PHPUnit_Framework_TestCase
 {
@@ -80,12 +81,14 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
     /**
      * Test creating and then expanding a URL
      *
+     * @param string $service The service to test
+     *
      * @dataProvider allServices
      * @return void
      */
     public function testCreateThenExpand($service)
     {
-        $api   = Services_ShortURL::factory($service);
+        $api = Services_ShortURL::factory($service);
 
         // Create a short URL and do some sanity checking
         $small = $api->shorten($this->testURL);
@@ -108,7 +111,7 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
      */
     public function testDetect($url, $service)
     {
-        $api = Services_ShortURL::detect($url);
+        $api      = Services_ShortURL::detect($url);
         $expected = 'Services_ShortURL_' . $service;
         $this->assertType($expected, $api);
         
@@ -117,7 +120,10 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test extraction function
      *
+     * @see Services_ShortURLTest::detectServices()
+     * @return void
      */
     public function testExtract()
     {
@@ -139,6 +145,11 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * Return all services
+     *
+     * @return array List of services
+     */
     public function allServices()
     {
         return array(
@@ -151,6 +162,11 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * Return example URLs + service name
+     * 
+     * @return array List of services with URLs
+     */
     public function detectServices()
     {
         return array(

@@ -41,8 +41,22 @@ class      Services_ShortURL_Trim
 extends    Services_ShortURL_Common
 implements Services_ShortURL_Interface
 {
+    /**
+     * Location of API
+     *
+     * @var string $api Location of API
+     */
     protected $api = 'http://api.tr.im/api/trim_url.xml'; 
 
+    /**
+     * Shorten a URL using {@link http://tr.im}
+     *
+     * @param string $url The URL to shorten
+     *
+     * @throws {@link Services_ShortURL_Exception_CouldNotShorten}
+     * @return string The shortened URL
+     * @see Services_ShortURL_Digg::sendRequest()
+     */
     public function shorten($url)
     {
         $url = $this->api . '?url=' . $url;        

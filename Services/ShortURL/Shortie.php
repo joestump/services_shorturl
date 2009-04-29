@@ -42,8 +42,23 @@ class      Services_ShortURL_Shortie
 extends    Services_ShortURL_Common
 implements Services_ShortURL_Interface
 {
-    private $api = 'http://short.ie/api';
+    /**
+     * Location of API
+     *
+     * @var string $api Location of API
+     */
+    protected $api = 'http://short.ie/api';
 
+
+    /**
+     * Shorten a URL using {@link http://short.ie}
+     *
+     * @param string $url The URL to shorten
+     *
+     * @throws {@link Services_ShortURL_Exception_CouldNotShorten}
+     * @return string The shortened URL
+     * @see Services_ShortURL_Shortie::sendRequest()
+     */
     public function shorten($url)
     {
         $params = array(
@@ -68,7 +83,15 @@ implements Services_ShortURL_Interface
         return (string)$xml->shortened;
     }
 
-    private function sendRequest($url)
+    /**
+     * Send a request to {@link http://short.ie}
+     *
+     * @param string $url The URL to send the request to
+     *
+     * @throws {@link Services_ShortURL_Exception_CouldNotShorten}
+     * @return object Instance of SimpleXMLElement
+     */
+    protected function sendRequest($url)
     {
         $this->req->setUrl($url);
         $this->req->setMethod('GET');
