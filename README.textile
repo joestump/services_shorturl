@@ -16,6 +16,7 @@ h3. Services
 * short.ie
 * TinyURL
 * tr.im
+* piep.net
 
 h3. Shortening a URL
 

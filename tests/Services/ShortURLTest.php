@@ -158,7 +158,8 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
             array('Trim'),
             array('Shortie'),
             array('Bitly'),
-            array('Digg')
+            array('Digg'),
+            array('PiepNet'),
         );
     }
 
@@ -175,7 +176,8 @@ class Services_ShortURLTest extends PHPUnit_Framework_TestCase
             array('http://is.gd/uaPi', 'Isgd'),
             array('http://tr.im/jCBG', 'Trim'),
             array('http://bit.ly/10qgu', 'Bitly'),
-            array('http://digg.com/d1kAa1', 'Digg')
+            array('http://digg.com/d1kAa1', 'Digg'),
+            array('http://piep.net/6z68', 'PiepNet')
         );
     }
 }
