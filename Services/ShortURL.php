@@ -60,7 +60,8 @@ abstract class Services_ShortURL
         'tinyurl.com' => 'TinyURL',
         'digg.com'    => 'Digg',
         'tr.im'       => 'Trim',
-        'short.ie'    => 'Shortie'
+        'short.ie'    => 'Shortie',
+        'piep.net'    => 'PiepNet'
     );
 
     /**
